@@ -1,13 +1,21 @@
-import Profile from "./Profile";
+import SearchBar from "./components/SearchBar";
+import {useState} from "react";
+import searchImages from "./api";
+import ImageList from "./components/ImageList";
 
 function App() {
-  return (
-    <div className="App">
-    <h1 style={{textAlign:"center", color:"orange"}}>Hello from App js</h1>
+  const [images,setImages] = useState([]);
 
-      <Profile  color="red" align="left"/>
-      <Profile color="blue" align="center"/>
-      <Profile color="navy" align="right"/>
+  const handleSubmit = async (term) => {
+    const result = await searchImages(term);
+
+    setImages(result);
+  }
+
+  return (
+    <div>
+    <SearchBar onsubmit={handleSubmit}/>
+      <ImageList images={images}/>
     </div>
   );
 }

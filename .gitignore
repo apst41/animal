@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 .idea
 .idea/*
-
+/.idea
 .idea/.*
 .idea/untitled1.iml
 .idea/modules.xml
